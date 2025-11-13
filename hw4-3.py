@@ -2,7 +2,6 @@ import sys
 
 NUM_BAYS = 12
 MAX_DAYS = NUM_BAYS * 365
-type Task = tuple[int, int, int]  # (id, start_day, priority)
 
 
 def count_gen():
@@ -15,7 +14,7 @@ def count_gen():
         id += 1
 
 
-def dnc(tasks: list[Task], max_hours=MAX_DAYS) -> tuple[int, list[int]]:
+def dnc(tasks: list[tuple[int, int, int]], max_hours=MAX_DAYS) -> tuple[int, list[int]]:
     """
     Simple divide and conquer approach to solve the task selection problem.
     DO NOT USE THIS FUNCTION, IT IS INEFFICIENT FOR LARGE INPUTS.
@@ -35,7 +34,7 @@ def dnc(tasks: list[Task], max_hours=MAX_DAYS) -> tuple[int, list[int]]:
     return worth_2, [id] + res_2
 
 
-def dp(tasks: list[Task], max_hours=MAX_DAYS):
+def dp(tasks: list[tuple[int, int, int]], max_hours=MAX_DAYS):
     """
     Dynamic programming approach to solve the task selection problem.
     """
